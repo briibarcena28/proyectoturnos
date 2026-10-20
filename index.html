@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Turnos Médicos</title>
+  <link rel="stylesheet" href="diseno2.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">🏥 Portal de Turnos Médicos</div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#turnos">Próximos Turnos</a></li>
+        <li><a href="#nuevo-turno">Registrar Turno</a></li>
+      </ul>
+      <div class="cart-status">
+        📋 Total Turnos: <span id="turnos-count">0</span>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <h1>Cartelera de Turnos y Consultas Médicas</h1>
+    <p>Consulta tus citas programadas en centros médicos (CEMAC, IQDC, Sanatorio Itoiz) y agrega nuevas reservas.</p>
+    <a href="#turnos" class="btn">Ver Mis Turnos</a>
+  </section>
+
+  <section class="shop-section" id="turnos">
+    <h2>Próximos Turnos Agendados</h2>
+    <p class="subtitle">Listado completo de tus citas médicas programadas</p>
+    
+    <div id="turnos-grid" class="productos-grid">
+      <p class="cargando">Cargando la lista de turnos...</p>
+    </div>
+  </section>
+
+  <section class="supabase-section" id="nuevo-turno">
+    <div class="card-large">
+      <h2>Registrar Nuevo Turno</h2>
+      <p>Completa los datos para guardar una nueva cita en Supabase:</p>
+      
+      <form id="form-turno" class="form-group">
+        <input type="text" id="input-paciente" placeholder="Nombre del Paciente" value="NOLORBE PACAYA, LILI" required>
+        <div style="display: flex; gap: 10px;">
+          <input type="date" id="input-fecha" required style="flex:1; padding:0.8rem; border:1px solid #d4c1b9; border-radius:6px;">
+          <input type="time" id="input-hora" required style="flex:1; padding:0.8rem; border:1px solid #d4c1b9; border-radius:6px;">
+        </div>
+        <input type="text" id="input-especialidad" placeholder="Especialidad (Ej: TRAUMATOLOGIA ADULTOS)" required>
+        <input type="text" id="input-profesional" placeholder="Profesional (Ej: KEES, SAMUEL)" required>
+        <input type="text" id="input-centro" placeholder="Centro de Atención (Ej: CEMAC RECOLETA)" required>
+        <input type="text" id="input-prestacion" placeholder="Prestación" value="CONSULTA MEDICA" required>
+        
+        <div class="button-group">
+          <button id="btn-guardar" type="submit" class="btn-primary">Agendar Turno</button>
+          <button id="btn-consultar" type="button" class="btn-secondary">Actualizar Lista</button>
+        </div>
+      </form>
+
+      <div id="resultados" class="resultados-box">
+        <p>Estado de las operaciones de la base de datos aparecerá aquí.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Portal de Gestión Médica - Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
