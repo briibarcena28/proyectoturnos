@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Autogestión de Turnos Médicos</title>
+  <link rel="stylesheet" href="diseno2.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- Encabezado Institucional -->
+  <header>
+    <nav>
+      <div class="logo">
+        🏥 AUTOGESTIÓN DE PACIENTES
+      </div>
+      <div class="user-info">
+        Paciente: <span>NOLORBE PACAYA, LILI</span>
+        <small>lili.nolorbe29@gmail.com</small>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="main-container">
+    
+    <section>
+      <h2 class="section-title">Próximos Turnos Programados</h2>
+      <p class="subtitle">Listado oficial de citas médicas obtenidas en centros de atención.</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha y Hora</th>
+              <th>Centro de Atención</th>
+              <th>Especialidad / Profesional</th>
+              <th>Motivo / Prestación</th>
+              <th>Recordatorio</th>
+            </tr>
+          </thead>
+          <tbody id="turnos-tabla-body">
+            <tr>
+              <td colspan="5" class="cargando" style="text-align: center; padding: 2rem;">Sincronizando cartelera de turnos...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Sección para registrar nuevos turnos -->
+    <section class="admin-section">
+      <h3>Registrar Nuevo Turno Manualmente</h3>
+      <p class="subtitle" style="margin-bottom: 1.2rem;">Ingrese los datos correspondientes para agregar una nueva cita a su historial.</p>
+      
+      <form id="form-turno">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Fecha</label>
+            <input type="date" id="input-fecha" required>
+          </div>
+          <div class="form-group">
+            <label>Hora</label>
+            <input type="time" id="input-hora" required>
+          </div>
+          <div class="form-group">
+            <label>Especialidad</label>
+            <input type="text" id="input-especialidad" placeholder="Ej: TRAUMATOLOGIA ADULTOS" required>
+          </div>
+          <div class="form-group">
+            <label>Profesional</label>
+            <input type="text" id="input-profesional" placeholder="Ej: KEES, SAMUEL" required>
+          </div>
+          <div class="form-group">
+            <label>Centro de Atención</label>
+            <input type="text" id="input-centro" placeholder="Ej: CEMAC RECOLETA" required>
+          </div>
+          <div class="form-group">
+            <label>Prestación / Motivo</label>
+            <input type="text" id="input-prestacion" value="CONSULTA MEDICA" required>
+          </div>
+          <div class="form-group full">
+            <label>Paciente</label>
+            <input type="text" id="input-paciente" value="NOLORBE PACAYA, LILI" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="margin-top: 1.5rem;">Confirmar y Guardar Turno</button>
+      </form>
+
+      <div id="resultados" class="resultados-box"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sistema de Autogestión Médica - Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
